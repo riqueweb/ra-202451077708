@@ -77,6 +77,7 @@ ordem   tag    texto do titulo
 **Sua análise:**
 
 1. Quantos h1 a página tem? Se tem mais de um, qual seria o problema disso?
+R: localizado somente 1 h1, o ideal é apenas 1 h1 pois é o titulo principal, creio que subtitulos devem seguir a hierarquia h2, h3, h4...
 
 2. Algum nível foi pulado (um h2 seguido direto de um h4)? Anote onde.
 
@@ -89,23 +90,26 @@ ordem   tag    texto do titulo
 Um leitor de tela lê o alt em voz alta no lugar da imagem. Anote os três primeiros e classifique cada um:
 
 ```text
-img 1  alt = _______________________________________
-       ( ) descritivo  ( ) inutil  ( ) ausente  ( ) vazio proposital
+img 1  alt = _________UAI______________________________
+       ( ) descritivo  (x) inutil  ( ) ausente  ( ) vazio proposital
 
-img 2  alt = _______________________________________
-       ( ) descritivo  ( ) inutil  ( ) ausente  ( ) vazio proposital
+img 2  alt = _________UAI______________________________
+       ( ) descritivo  (x) inutil  ( ) ausente  ( ) vazio proposital
 
-img 3  alt = _______________________________________
-       ( ) descritivo  ( ) inutil  ( ) ausente  ( ) vazio proposital
+img 3  alt = _________SEM ALT__________________________
+       ( ) descritivo  ( ) inutil  (x) ausente  ( ) vazio proposital
 ```
 
 **Sua análise:**
 
 1. Algum alt era só o nome do arquivo ("banner-2024-final.jpg")? Por que isso é inútil?
+R: Nenhum alt era nome do arquivo, e sim o texto UAI, que nao tem o conteudo ou a funçao da imagenm e nao ajuda o usuario ou leitor.
 
 2. Feche os olhos e imagine ouvir a página. O que você perderia com esses alt?
+R: somente som nao saberia o significado, pois UAI é uma giria utilizada em alguns estados, como MG, GO, etc, e pode ter varios sentidos
 
 3. Reescreva o pior dos três de forma que descreva a imagem em menos de 12 palavras.
+R: "Sorvete Oggi em destaque, com opçoes de sabores e produtos"
 
 ## RODADA 05 — O link fora de contexto
 
