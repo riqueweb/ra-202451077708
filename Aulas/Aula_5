@@ -1,0 +1,35 @@
+Você vai auditar sites reais com as ferramentas que já tem no navegador. Ao final, aplique o mesmo protocolo no seu próprio projeto — que vale nota na próxima aula.
+
+Escolha um site real de porte médio (loja, portal, site institucional) para as Rodadas 2, 3, 4 e 6.
+As Rodadas 1 e 5 utilizam o arquivo site-nao-responsivo.html disponibilizado pelo professor.
+Ferramentas: modo dispositivo (Ctrl+Shift+M), aba Lighthouse, painel Elements, tecla Tab.
+Na Rodada 5, NÃO leia o comentário no topo do arquivo antes de terminar a caça.
+⏱️ Tempo: 40 minutos 👥 Formato: individual, conferindo cada rodada com o colega ao lado
+
+Nome: Webert Henrique E. Ramos Turma: PW 2026.2  Data: 11 / 09 / 2026
+
+RODADA 01 — A linha que falta
+Abrir site-nao-responsivo.html e um site real, ambos no modo dispositivo (Ctrl+Shift+M) em 360px
+
+Um dos dois se comporta como se estivesse num computador, mesmo no celular. Compare e investigue o <head>dos dois:
+
+site-nao-responsivo.html em 360px:
+  ha rolagem horizontal?     ( )sim ( )nao
+  o texto ficou legivel?     ( )sim ( )nao
+
+site real em 360px:
+  ha rolagem horizontal?     ( )sim ( )nao
+
+a linha que existe no <head> do site real e falta no outro:
+  <meta name="__________" content="_________________________">
+
+Sua análise:
+
+1 - Sem essa linha, que largura o celular tem? (dica: adquirir "980" na web)
+R: 
+
+2 - Essa linha faz o layout se adaptar sozinho, ou apenas permite que ele se adapte?
+R:
+
+3 - Ela é CSS ou HTML? Em que aula vocês viram esse elemento pela primeira vez?
+R: 

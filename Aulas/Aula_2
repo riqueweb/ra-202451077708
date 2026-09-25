@@ -33,9 +33,9 @@ Desenhe no retângulo abaixo onde ficam as grandes regiões da página que você
 
 ```text
 +--------------------------------------------------+
-|                <header> (Logo)                   |
-|                <nav> (menu/cat)                  |
-|         <main> (notícias/conteúdos principais)   |
+|     <header> (Logo)         <nav> (menu/cat)     |
+|                                  |
+|      <main> (catalogo/conteúdos principais)      |
 |                                                  |
 |                    <article>                     |
 |                    <article>                     |
@@ -44,7 +44,7 @@ Desenhe no retângulo abaixo onde ficam as grandes regiões da página que você
 |                    <footer>                      |
 |                                                  |
 +--------------------------------------------------+
-  site investigado: https://g1.globo.com/mg/minas-gerais/
+  site investigado: https://www.tudogostoso.com.br/
 
 **Sua análise:**
 
@@ -67,7 +67,7 @@ Esse comando lista os títulos na ordem em que aparecem no código. Anote os pri
 ```text
 ordem   tag    texto do titulo
 -----   ----   ------------------------------------
-  1     ____   ____________________________________
+  1     h1     Tudo Gostoso
   2     ____   ____________________________________
   3     ____   ____________________________________
   4     ____   ____________________________________
@@ -77,10 +77,13 @@ ordem   tag    texto do titulo
 **Sua análise:**
 
 1. Quantos h1 a página tem? Se tem mais de um, qual seria o problema disso?
+R: localizado somente 1 h1, o ideal é apenas 1 h1 pois é o titulo principal, creio que subtitulos devem seguir a hierarquia h2, h3, h4...
 
 2. Algum nível foi pulado (um h2 seguido direto de um h4)? Anote onde.
+R: não : '1. H1 - Bolo no pote', '2. H2 - Ingredientes (15 porções)', '3. H3 - Massa', '4. H3 - Recheio e cobertura de brigadeiro de colher', '5. H3 - Recheio e cobertura de beijinho de colher', '6. H2 - Utensílios', '7. H2 - Modo de preparo', '8. H3 - Recheio e cobertura de brigadeiro de colher', '9. H3 - Recheio e cobertura de beijinho de colher', '10. H3 - Montagem', '11. H2 - Veja também…', '12. H2 - Informações adicionais', '13. H3 - Como fazer bolo de pote com as dicas do TudoGostoso', '14. H3 - Se torne um especialista em bolos, veja também:']
 
 3. Lendo só os títulos, você entende de que a página trata? Se não, o que está faltando?
+R : Sim, o proprio nome ja diz: Bolo no pote : H1 - Bolo no pote
 
 ## RODADA 04 — O alt que ninguém lê (mas alguém ouve)
 
@@ -89,24 +92,27 @@ ordem   tag    texto do titulo
 Um leitor de tela lê o alt em voz alta no lugar da imagem. Anote os três primeiros e classifique cada um:
 
 ```text
-img 1  alt = _______________________________________
-       ( ) descritivo  ( ) inutil  ( ) ausente  ( ) vazio proposital
+img 1  alt = _________Cesta Basica Reality_____________
+       ( ) descritivo  (x) inutil  ( ) ausente  ( ) vazio proposital
 
-img 2  alt = _______________________________________
-       ( ) descritivo  ( ) inutil  ( ) ausente  ( ) vazio proposital
+img 2  alt = _________Receitas Coreanas______________________________
+       ( ) descritivo  (x) inutil  ( ) ausente  ( ) vazio proposital
 
-img 3  alt = _______________________________________
-       ( ) descritivo  ( ) inutil  ( ) ausente  ( ) vazio proposital
+img 3  alt = _________Receitas para a hora do almoço_________________
+       ( ) descritivo  ( ) inutil  (x) ausente  ( ) vazio proposital
 ```
 
 **Sua análise:**
 
 1. Algum alt era só o nome do arquivo ("banner-2024-final.jpg")? Por que isso é inútil?
+R: Nenhum alt era nome do arquivo, e sim o texto que nao tem o conteudo ou a funçao da imagenm e nao ajuda o usuario ou leitor.
 
 2. Feche os olhos e imagine ouvir a página. O que você perderia com esses alt?
+R: Receitas, que talvez seja alguns dos nichos da pagina
 
 3. Reescreva o pior dos três de forma que descreva a imagem em menos de 12 palavras.
-
+R: Cesta basica Reality ( imagem fora do contexto 
+)
 ## RODADA 05 — O link fora de contexto
 
 > `No Console: $$('a').slice(0,10).map(a => a.innerText.trim()).filter(t => t)`
@@ -114,23 +120,18 @@ img 3  alt = _______________________________________
 Leitores de tela permitem navegar por uma lista só de links, sem o texto ao redor. Anote 3 textos de link e teste se sobrevivem sozinhos:
 
 ```text
-link 1: "____________________"  faz sentido sozinho? ( )sim ( )nao
-link 2: "____________________"  faz sentido sozinho? ( )sim ( )nao
-link 3: "____________________"  faz sentido sozinho? ( )sim ( )nao
+link 1: "Entrar"  faz sentido sozinho? (x)sim ( )nao
+link 2: "Cadastrar"  faz sentido sozinho? (x)sim ( )nao
+link 3: "Cesta Basica Coreana"  faz sentido sozinho? (x)sim ( )nao
 ```
 
 **Sua análise:**
 
 1. Você encontrou algum "clique aqui", "saiba mais" ou "leia"? Para onde ele levava?
+R: "Receitas Relacionadas" com inmagem ilustrativa, leva direto a outra pagina ja com a receita completa
 
 2. Reescreva um desses textos para que ele diga o destino sem depender da frase ao redor.
+"Cadastrar = Minha Conta"
 
 3. Algum link abria em nova aba? Como você descobriu isso olhando o código?
-
-## 🏆 DESAFIO BÔNUS
-
-Terminou antes do tempo? Escolha um destes:
-
-- Rode a auditoria Accessibility do Lighthouse (DevTools → Lighthouse) no site que você investigou. Qual foi a nota e qual o primeiro problema apontado?
-- Procure na página um texto que PARECE título (grande e em negrito) mas não é um h. Como você confirmou?
-- Encontre um site que use `<table>` para fazer layout em vez de dados tabulares. Por que isso é um problema de acessibilidade?
+sim
