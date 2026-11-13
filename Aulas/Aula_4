@@ -120,17 +120,23 @@ Ainda no elemento inspecionado → painel Styles → localizar (ou adicionar) bo
 
 Troque box-sizing entre content-box e border-box e observe o elemento na tela. Registre a diferença:
 
-width declarado no CSS: ______ px
+width declarado no CSS: 576.250 px
 
-box-sizing: content-box  ->  largura na tela: ______ px
-box-sizing: border-box   ->  largura na tela: ______ px
+box-sizing: content-box  ->  largura na tela: 576.250 px
+box-sizing: border-box   ->  largura na tela: 576.250 px
 
-diferenca entre as duas: ______ px
-essa diferenca corresponde a que camadas? ____________________
+diferenca entre as duas: 0 px, pois no site escolhido, padding e border = 0.
+
+essa diferenca corresponde a que camadas?
+R- soma de padding e border.
+
 Sua análise:
 
 Com qual dos dois valores a largura na tela é igual à largura que você declarou?
+R- ambos, nao houve alteração de padding e border
 
 Por que quase todo projeto começa o CSS com a regra * { box-sizing: border-box }?
+R- para que p tamanho real do elemento respeite a largura declarado, somando bordas, para nao sair do layout da box
 
 Se você somar padding a um elemento com border-box, o que muda de tamanho: a caixa ou o conteúdo dentro dela?
+R- o conteudo diminui para abrir espaço para padding, mantendo o tamanho total da caixa.
