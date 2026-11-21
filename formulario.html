@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tenho Interesse - SportStore</title>
+</head>
+<body>
+    <header>
+        <h1>SportStore</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Início</a></li>
+                <li><a href="detalhes.html">Camisas</a></li>
+                <li><a href="formulario.html">Fale Conosco</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <h2>Tenho interesse em uma camisa</h2>
+        <p>Preencha o formulário abaixo para demonstrar seu interesse em um de nossos produtos.</p>
+        <form>
+            <p>
+                <label for="nome">Nome completo:</label>
+                <input type="text" id="nome" name="nome" required>
+            </p>
+            <p>
+                <label for="email">E-mail:</label>
+                <input type="email" id="email" name="email" required>
+            </p>
+            <p>
+                <label for="telefone">Telefone:</label>
+                <input type="tel" id="telefone" name="telefone" required>
+            </p>
+            <p>
+                <label for="camisa">Camisa desejada:</label>
+                <select id="camisa" name="camisa" required>
+                    <option value="">Selecione uma camisa</option>
+                    <option value="atletico">Atlético-MG</option>
+                    <option value="flamengo">Flamengo</option>
+                    <option value="real-madrid">Real Madrid</option>
+                    <option value="barcelona">Barcelona</option>
+                    <option value="brasil">Seleção Brasileira</option>
+                    <option value="argentina">Seleção Argentina</option>
+                    <option value="lakers">Los Angeles Lakers</option>
+                    <option value="bulls">Chicago Bulls</option>
+                </select>
+            </p>
+            <p>
+                <label for="tamanho">Tamanho:</label>
+                <select id="tamanho" name="tamanho" required>
+                    <option value="">Selecione um tamanho</option>
+                    <option value="P">P</option>
+                    <option value="M">M</option>
+                    <option value="G">G</option>
+                    <option value="GG">GG</option>
+                </select>
+            </p>
+            <p>
+                <label for="quantidade">Quantidade:</label>
+                <input type="number" id="quantidade" name="quantidade" min="1" required>
+            </p>
+            <p>
+                <label for="observacao">Observações:</label>
+                <textarea id="observacao" name="observacao" rows="4" cols="30"></textarea>
+            </p>
+            <button type="submit">Enviar interesse</button>
+        </form>
+    </main>
+    <footer>
+        <p>SportStore</p>
+        <p>SAQ: 31 3657-4958</p>
+        <p>Enviamos para todo o Brasil</p>
+    </footer>
+</body>
+</html>
