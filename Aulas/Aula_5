@@ -14,22 +14,128 @@ Abrir site-nao-responsivo.html e um site real, ambos no modo dispositivo (Ctrl+S
 Um dos dois se comporta como se estivesse num computador, mesmo no celular. Compare e investigue o <head>dos dois:
 
 site-nao-responsivo.html em 360px:
-  ha rolagem horizontal?     ( )sim ( )nao
-  o texto ficou legivel?     ( )sim ( )nao
+  ha rolagem horizontal?     (x)sim ( )nao
+  o texto ficou legivel?     ( )sim (x)nao
 
 site real em 360px:
-  ha rolagem horizontal?     ( )sim ( )nao
+  ha rolagem horizontal?     ()sim (x)nao
 
 a linha que existe no <head> do site real e falta no outro:
-  <meta name="__________" content="_________________________">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 Sua análise:
 
 1 - Sem essa linha, que largura o celular tem? (dica: adquirir "980" na web)
-R: 
+R: 980pc
 
 2 - Essa linha faz o layout se adaptar sozinho, ou apenas permite que ele se adapte?
-R:
+R: Apenas permite, nao faz sozinho, a adptação depende do CSS
 
 3 - Ela é CSS ou HTML? Em que aula vocês viram esse elemento pela primeira vez?
-R: 
+R: HTML - visto na Aula 2, sobre meta tags e responsividade
+
+RODADA 02 — Caça aos breakpoints
+Site real → arrastar a borda da janela DEVAGAR, do máximo até uns 320px, observando o layout
+
+Anote as larguras exatas em que o layout muda de estrutura (colunas que viram uma, menu que vira sanduíche). Depois procure esses números no CSS:
+
+largura (px)   o que mudou na tela
+------------   ----------------------------------------
+604px           titulo globopop sumiu
+466px           grade de materias e colunas diminuem, titulos menores
+320px           botoes se adaptam a versao mobile.
+
+no CSS (Styles), esses numeros aparecem dentro de:
+  @media (max-width: 539px) { background-color: #eee; }
+(max-width: 539px)
+total de breakpoints encontrados: ______
+Sua análise:
+
+As media queries do site usam min-width ou max-width? O que isso diz sobre a estratégia dele?
+R: O site utiliza max-width. 
+
+Os breakpoints são números redondos (768, 1024) ou valores incomuns? O que cada escolha sugere?
+R : Os breakpoints são valores incomuns (604px, 466px, 320px), sendo assim, o site foi ajustado para se adaptar a tamanhos de tela específicos.
+
+Houve mudança de layout SEM media query? Onde? (dica: relembre auto-fit da aula 7)
+R : Sim, houve mudança de layout sem media query. Isso pode ser observado na forma como os elementos se ajustam automaticamente ao tamanho da tela, utilizando propriedades CSS como flexbox ou grid com auto-fit, permitindo que o conteudo se reorganize sem a necessidade de uma media query específica
+
+RODADA 03 — O teste do teclado
+Site real → clicar uma vez na barra de endereços, depois só Tab, Shift+Tab e Enter. Sem tocar no mouse.
+
+Muita gente navega sem mouse: por deficiência motora, por lesão temporária ou por velocidade. Tente usar o site inteiro só com o teclado:
+
+voce conseguiu:
+  chegar ao menu principal?          (x)sim ( )nao
+  chegar a um botao de acao?         (x)sim ( )nao
+  usar o campo de busca?             (x)sim ( )nao
+  saber SEMPRE onde estava o foco?   (x)sim ( )nao
+
+quantos Tab foram necessarios para chegar ao conteudo principal? 17
+encontrou algum elemento clicavel INALCANCAVEL pelo Tab? qual?
+apos patrocinio com coca cola o foco sumiu, e foi ate a principal noticia no 17º Tab 
+
+Sua análise:
+
+Em algum momento você se perdeu na página? O que faltava para não se perder?
+R: Sim, em alguns momentos, pois faltava um indicador visual claro de onde o foco estava, como uma borda ou destaque mais evidente nos elementos focados
+
+Se um site tem 40 links no topo, quantos Tab um usuário de teclado dá antes do conteúdo? Existe solução para isso?
+R: 40x antes de chegar ao conteudo principal. Uma solução seria implementar um "skip link" no início do <body> apontando para #conteudo ou <main>
+
+Repita o teste no site-nao-responsivo.html: você consegue se inscrever na feira usando só o teclado?
+R: Não.
+
+RODADA 04 — A nota do Lighthouse
+DevTools → aba Lighthouse → marcar apenas "Accessibility" → Analyze page load
+
+O Lighthouse audita automaticamente parte dos critérios da WCAG. Rode em dois sites e compare:
+
+site 1: https://ge.globo.com/  nota: 78 /100
+  problema 1: A limpeza do cache do navegador excedeu o tempo limite. Tente analisar esta página novamente e registre um relato de erro caso o problema persista.
+  problema 2: Pode haver dados armazenados neste local — IndexedDB — que afetam o desempenho de carregamento. Realize uma auditoria desta página em uma janela anônima para evitar que esses recursos influenciem suas pontuações.
+  problema 3: A página carregou lentamente demais para ser concluída dentro do limite de tempo. Os resultados podem estar incompletos.
+
+site 2: https://www.uol.com.br/  nota: 69 /100
+  problema 1: Pode haver dados armazenados neste local — IndexedDB — que afetam o desempenho de carregamento. Realize uma auditoria desta página em uma janela anônima para evitar que esses recursos influenciem suas pontuações.
+
+site-nao-responsivo.html nota: ______ /100
+R: não auditado pelo Lighthouse em file://; exige http/https
+
+Sua análise:
+
+Algum problema apontado aparece nos DOIS sites? Qual? Por que ele é tão comum?
+R: Sim, o problema de dados armazenados no IndexedDB aparece nos dois sites. Isso é comum porque muitos sites utilizam armazenamento local para melhorar a experiência do usuário, mas isso pode afetar o desempenho e a auditoria de acessibilidade
+
+Uma nota 100 significa que o site é acessível? Pense no que você descobriu na Rodada 3.
+R: Não, uma nota 100 não significa que o site é totalmente acessívelpois a auditoria do Lighthouse avalia apenas alguns critérios de acessibilidade, mas não cobre todos os aspectos, como navegação por teclado, contraste de cores e outros elementos que podem impactar a experiência de usuários com deficiência
+Qual problema apontado você saberia corrigir agora, com o que aprendeu até a aula 7?
+R: Eu saberia corrigir problemas relacionados à navegação por teclado, como tab fazendo a implementação de "skip links" para permitir que os usuários pulem diretamente para o conteúdo principal
+
+RODADA 05 — Caça aos defeitos (sem espiar)
+
+site-nao-responsivo.html → Elements, Lighthouse, Tab e o olho. NÃO leia o comentário no topo do arquivo.
+
+Este arquivo tem 14 defeitos plantados: 6 de responsividade e 8 de acessibilidade. Encontre o máximo que conseguir e classifique cada um:
+
+#   defeito encontrado                      tipo (R/A)  como voce achou
+--  --------------------------------------  ----------  ----------------
+ 1  ______________________________________  __________  ________________
+ 2  ______________________________________  __________  ________________
+ 3  ______________________________________  __________  ________________
+ 4  ______________________________________  __________  ________________
+ 5  ______________________________________  __________  ________________
+ 6  ______________________________________  __________  ________________
+ 7  ______________________________________  __________  ________________
+ 8  ______________________________________  __________  ________________
+
+R = responsividade   A = acessibilidade      total: ______ de 14
+Sua análise:
+
+Quantos você encontrou com o Lighthouse e quantos só percebeu testando à mão?
+
+Qual defeito é o mais grave, na sua opinião? Justifique pensando em quem é afetado.
+
+Escolha o defeito que você acha mais fácil de corrigir e escreva a linha de CSS ou HTML que resolve.
+
+RODADA 06 — Dá para acertar com o dedo?
