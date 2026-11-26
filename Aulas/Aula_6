@@ -1,0 +1,129 @@
+🎯 MISSÃO
+Três arquivos constroem o MESMO componente: com CSS próprio, com Bootstrap 5 e com Tailwind. Sua missão é medir os trade-offs com números e sair desta aula com um critério próprio de escolha — que você vai usar hoje mesmo, na entrega da Fase 1.
+•Abra os três: comparativo-css-proprio.html, comparativo-bootstrap.html e comparativo-tailwind.html.
+•Os arquivos de Bootstrap e Tailwind precisam de internet (CDN). Sem rede, compare pelo código.
+•Ferramentas: aba Network, painel Coverage (Ctrl+Shift+P → "Coverage"), Lighthouse e o código-fonte.
+•Não existe resposta certa nesta ficha. Existe justificativa boa ou fraca.
+⏱️ Tempo: 40 minutos     👥 Formato: individual, conferindo cada rodada com o colega ao lado
+Nome:	Turma:                    Data:      /      /          
+
+RODADA 01     Onde mora a decisão visual?
+Abrir o código-fonte dos três arquivos (Ctrl+U) e localizar UM card em cada
+O card é branco, com borda cinza e canto arredondado nos três. Descubra onde essa informação está escrita em cada versão:
+ 1                          linhas de CSS   "branco + borda + canto"
+ 2                          proprio         esta escrito em...
+ 3                          -------------   ------------------------
+ 4  CSS proprio             2 linhas .card     (x)CSS  ( )HTML
+ 5  Bootstrap               0 linhas           (x)CSS  ( )HTML
+ 6  Tailwind                0 linhas           ( )CSS  (x)HTML
+ 7  
+ 8  tamanho do HTML de UM card (conte os caracteres da linha do <article>):
+ 9    css proprio: 28   bootstrap: 33   tailwind: 71
+Sua análise:
+Em qual versão o HTML é mais fácil de LER? E de ESCREVER?
+R - HTML do CSS proprio, para escrever, o Tailwind
+ 
+Se a decisão visual está no HTML, o que acontece quando o site tem 40 páginas?
+R- 
+ 
+Em qual versão você conseguiria mudar o estilo de todos os cards editando um único lugar?
+R - No CSS Proprio
+ 
+
+RODADA 02     O cliente quer trocar de azul para verde
+Nos três arquivos, tentar mudar a cor primária pelo DevTools
+É o pedido mais comum do mundo real. Meça o custo dessa mudança em cada versão:
+ 1                 quantos lugares              voce conseguiu
+ 2                 precisam mudar?              fazer no DevTools?
+ 3                 ---------------              ------------------
+ 4  CSS proprio    1-Variavel principal           (X)sim ( )nao
+ 5  Bootstrap      Varios pontos e lugares        (X)sim ( )nao
+ 6  Tailwind       Em cada classe sky             (x)sim ( )nao
+                     ex bg-sky-700 
+ 7  
+ 8  no CSS proprio, o que exatamente voce mudou?
+ 9    cor primaria, em DevTools>Elements>styles>:root
+
+Sua análise:
+Qual recurso da aula 5 fez essa mudança ser trivial no CSS próprio?
+ re curso de Variaveis CSS, como cor primaria
+ 
+No Bootstrap, por que mudar a cor primária de verdade não é tão simples quanto parece?
+ porque tem muitas derivaçoes como hover, focus, bordas e botoes, exigindo que troque um a um
+ 
+No Tailwind, o que você teria que fazer em cada card? Existe forma de centralizar isso?
+ a cor não fica concentrada em uma unica variavel CSS como no CSS prooprio. cada cada card repete classes e tem que ser alterada
+
+ 
+RODADA 03     Quanto o usuário baixa — e quanto se usa
+Aba Network (marcar Disable cache, recarregar) e painel Coverage (Ctrl+Shift+P → "Show Coverage")
+Todo CSS que chega ao navegador foi baixado pelo usuário, usado ou não. Meça:
+ 1                          CSS baixado   % realmente usado
+ 2                          -----------   -----------------
+ 3  CSS proprio             ______ kB     ______ %
+ 4  Bootstrap               ______ kB     ______ %
+ 5  Tailwind (Play CDN)     ______ kB     ______ %
+ 6  
+ 7  obs: o Play CDN do Tailwind NAO representa producao — instalado via npm,
+ 8       ele gera um CSS so com as classes usadas. Anote o valor mesmo assim.
+Sua análise:
+Qual versão desperdiça mais bytes do usuário? Em uma conexão 4G lenta, isso importa?
+ 
+ 
+Por que o CSS próprio tem aproveitamento tão alto?
+ 
+ 
+O que o Bootstrap traz que esta página não usa? Cite dois componentes.
+ 
+ 
+
+RODADA 04     Vocabulário novo ou CSS que você já sabe?
+Listar classes reais dos dois arquivos de framework e classificar cada uma
+Frameworks cobram um preço de aprendizado. Descubra qual é o preço de cada um:
+ 1  BOOTSTRAP — 5 classes que voce encontrou:
+ 2    1. ______________  descreve: ( )componente ( )propriedade CSS
+ 3    2. ______________  descreve: ( )componente ( )propriedade CSS
+ 4    3. ______________  descreve: ( )componente ( )propriedade CSS
+ 5    4. ______________  descreve: ( )componente ( )propriedade CSS
+ 6    5. ______________  descreve: ( )componente ( )propriedade CSS
+ 7  
+ 8  TAILWIND — 5 classes que voce encontrou:
+ 9    1. ______________  descreve: ( )componente ( )propriedade CSS
+10    2. ______________  descreve: ( )componente ( )propriedade CSS
+11    3. ______________  descreve: ( )componente ( )propriedade CSS
+12    4. ______________  descreve: ( )componente ( )propriedade CSS
+13    5. ______________  descreve: ( )componente ( )propriedade CSS
+Sua análise:
+Qual dos dois exige decorar nomes que só existem naquele framework?
+ 
+ 
+Quantas das classes do Tailwind você conseguiu entender só com o CSS das aulas 4 a 8?
+ 
+ 
+Se você trocar de framework no próximo projeto, qual dos dois aprendizados você leva com você?
+ 
+ 
+
+RODADA 05     Framework resolve acessibilidade?
+Rodar o Lighthouse (só Accessibility) nos três arquivos
+É a crença mais comum sobre frameworks. Teste antes de acreditar:
+ 1                          nota   primeiro problema apontado
+ 2                          ----   ---------------------------------
+ 3  CSS proprio             ____   _________________________________
+ 4  Bootstrap               ____   _________________________________
+ 5  Tailwind                ____   _________________________________
+ 6  
+ 7  algum framework resolveu, sozinho:
+ 8    alt das imagens?          ( )sim ( )nao
+ 9    contraste do texto?       ( )sim ( )nao
+10    foco visivel no teclado?  ( )sim ( )nao
+Sua análise:
+Usar framework melhorou, piorou ou não alterou a nota? Por quê?
+ 
+ 
+O que um framework PODE ajudar em acessibilidade, e o que continua sendo seu trabalho?
+ 
+ 
+Depois destas 5 rodadas: qual você vai usar na Fase 1? Escreva a justificativa em uma frase.
+ 
+ em seguida, vou te mandar os arquivos 
